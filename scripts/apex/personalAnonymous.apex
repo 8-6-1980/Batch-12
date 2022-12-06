@@ -1,0 +1,10 @@
+string firstName= 'Hicran';
+string lastName ='Guner';
+string fullName =firstName + ' '+ lastName;
+system.debug('full name is--->' +fullName);
+string myCountry= 'Turkey';
+system.debug('I was born in  '+myCountry);
+string myFavoriteThings ='Watching movie, having coffee, visiting different places';
+system.debug('My favorite things to do is '+myFavoriteThings);
+string myFavoritePlaces='seaside, historical places and tradetional places';
+system.debug('My favorite places are '+ myFavoritePlaces);

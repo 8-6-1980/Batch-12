@@ -1,0 +1,1 @@
+employeeInfoAssignment.employeeDetail('Hicran Guner');
