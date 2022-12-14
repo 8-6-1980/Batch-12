@@ -1,29 +1,48 @@
 trigger AccountTrigger on Account (before insert, before update, after insert, after update) {
 
+
+    if (Trigger.isBefore) {
+        AccountTriggerHandler.updateAccountDescription(trigger.new, trigger.old, trigger.newMap, trigger.oldMap);
+    }
+
+// if(trigger.isBefore){
+//  system.debug('before insert/update trigger on account object');
+//  for(account eachAcc: trigger.new){
+//     if(trigger.isInsert&& eachAcc.Active__c=='Yes'){
+//         eachAcc.Description ='Account now active.enjoy!  ';
+//     }
+//     if(trigger.isUpdate){
+//         if(eachAcc.Active__c =='Yes' && trigger.oldMap.get(eachAcc.id).Active__c !=trigger.newMap.get(eachAcc.id).Active__c ){
+//             eachAcc.Description = 'Account is now active. Enjoy guys..';
+//         }
+//     }
+//  }
+// }
+
+
+        // List<Account> accTriggerNew = Trigger.new;
+        // List<Account> accTriggerOld = Trigger.old;
+        // map<Id, Account> accTriggerNewMap = trigger.newMap; 
+        // map<Id, Account> accTriggerOldMap = trigger.oldMap; 
     
-        List<Account> accTriggerNew = Trigger.new;
-        List<Account> accTriggerOld = Trigger.old;
-        map<Id, Account> accTriggerNewMap = trigger.newMap; 
-        map<Id, Account> accTriggerOldMap = trigger.oldMap; 
-    
-        if (Trigger.isAfter && Trigger.isUpdate){
-            Set<Id> accIds = accTriggerNewMap.keySet();
-            Integer countOfWebsiteUpdate = 0;
+        // if (Trigger.isAfter && Trigger.isUpdate){
+        //     Set<Id> accIds = accTriggerNewMap.keySet();
+        //     Integer countOfWebsiteUpdate = 0;
             
-            for (Id eachId : accIds){
-                String newWebsite = accTriggerNewMap.get(eachId).Website;
-                String oldWebSite = accTriggerOldMap.get(eachId).Website;
-                Account newAcc = accTriggerNewMap.get(eachId);
+        //     for (Id eachId : accIds){
+        //         String newWebsite = accTriggerNewMap.get(eachId).Website;
+        //         String oldWebSite = accTriggerOldMap.get(eachId).Website;
+        //         Account newAcc = accTriggerNewMap.get(eachId);
     
-                If(oldWebsite != newWebsite){
-                    System.debug('For the account '+newAcc.Name+', the new website is  '+newAcc.Website);
-                    countOfWebsiteUpdate++;
-                }
+        //         If(oldWebsite != newWebsite){
+        //             System.debug('For the account '+newAcc.Name+', the new website is  '+newAcc.Website);
+        //             countOfWebsiteUpdate++;
+        //         }
     
-            }
-            System.debug('Number of account websites updated ->' + countOfWebsiteUpdate);
+        //     }
+        //     System.debug('Number of account websites updated ->' + countOfWebsiteUpdate);
     
-        }
+        // }
 
 
 

@@ -1,24 +1,8 @@
-trigger ContactTrigger on Contact (before insert, after insert, before update,after update) {
-
-    if(Trigger.isBefore){
-        system.debug('we are in BEFORE trigger');
-        if(Trigger.isInsert){
-            system.debug('before insert trigger called');
-        }
-        if(Trigger.isUpdate){
-            system.debug('before update trigger called');
+trigger ContactTrigger on Contact (before insert, after insert, before update, after update) {
+    if (Trigger.isBefore) {
+        if (Trigger.isUpdate) {
+            system.debug('we are in Before update trigger');
+            ContactTriggerHandler.updateContactValidation1(Trigger.New, Trigger.Old, Trigger.NewMap, Trigger.OldMap);
         }
     }
-    if(Trigger.isAfter){
-        system.debug('we are in AFTER trigger');
-        if(Trigger.isInsert){
-            system.debug('after insert trigger called');
-        }
-        if(Trigger.isUpdate){
-            system.debug('after update trigger called');
-        }
-      
-    }
-
-    }
-    
+}
