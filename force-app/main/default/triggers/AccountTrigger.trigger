@@ -1,9 +1,14 @@
 trigger AccountTrigger on Account (before insert, before update, after insert, after update) {
-
-
-    if (Trigger.isBefore) {
-        AccountTriggerHandler.updateAccountDescription(trigger.new, trigger.old, trigger.newMap, trigger.oldMap);
+    if(trigger.isAfter&& trigger.isUpdate){
+        AccountTriggerHandler.updateVIPForAllContacts(trigger.new ,trigger.old, trigger.newMap, trigger.oldMap);
     }
+
+}
+
+
+    // if (Trigger.isBefore) {
+    //     AccountTriggerHandler.updateAccountDescription(trigger.new, trigger.old, trigger.newMap, trigger.oldMap);
+    // }
 
 // if(trigger.isBefore){
 //  system.debug('before insert/update trigger on account object');
@@ -18,6 +23,8 @@ trigger AccountTrigger on Account (before insert, before update, after insert, a
 //     }
 //  }
 // }
+
+
 
 
         // List<Account> accTriggerNew = Trigger.new;
@@ -43,6 +50,7 @@ trigger AccountTrigger on Account (before insert, before update, after insert, a
         //     System.debug('Number of account websites updated ->' + countOfWebsiteUpdate);
     
         // }
+ 
 
 
 
@@ -68,38 +76,38 @@ trigger AccountTrigger on Account (before insert, before update, after insert, a
     //         system.debug('oldAccount name -> ' + oldAccount.Name);
     //     }
 
-
-    // List<account> accTriggerNew = trigger.new;
-    // List<account> accTriggerOld = trigger.old;
-    // Map<id, account> accTriggerNewMap = trigger.newMap;
-    // Map<id, account> accTriggerOldMap = trigger.oldMap;
+   
+//     List<account> accTriggerNew = trigger.new;
+//     List<account> accTriggerOld = trigger.old;
+//     Map<id, account> accTriggerNewMap = trigger.newMap;
+//     Map<id, account> accTriggerOldMap = trigger.oldMap;
 // if (Trigger.isBefore && Trigger.isInsert) {
-    //     system.debug('before insert trigger new: ' + accTriggerNew);
-    //     system.debug('before insert trigger old: ' + accTriggerOld);
-    //     system.debug('before insert trigger new map: ' + accTriggerNewMap);
-    //     system.debug('before insert trigger old map: ' + accTriggerOldMap);
-    // }
-    // if (Trigger.isAfter && Trigger.isInsert) {
-    //     system.debug('after insert trigger new: ' + accTriggerNew);
-    //     system.debug('after insert trigger old: ' + accTriggerOld);
-    //     system.debug('after insert trigger new map: ' + accTriggerNewMap);
-    //     system.debug('after insert trigger old map: ' + accTriggerOldMap);
-    // }
+//         system.debug('before insert trigger new: ' + accTriggerNew);
+//         system.debug('before insert trigger old: ' + accTriggerOld);
+//         system.debug('before insert trigger new map: ' + accTriggerNewMap);
+//         system.debug('before insert trigger old map: ' + accTriggerOldMap);
+//     }
+//     if (Trigger.isAfter && Trigger.isInsert) {
+//         system.debug('after insert trigger new: ' + accTriggerNew);
+//         system.debug('after insert trigger old: ' + accTriggerOld);
+//         system.debug('after insert trigger new map: ' + accTriggerNewMap);
+//         system.debug('after insert trigger old map: ' + accTriggerOldMap);
+//     }
 
-    // if (Trigger.isBefore && Trigger.isUpdate) {
-    //     system.debug('before update trigger new: ' + accTriggerNew);
-    //     system.debug('before update trigger old: ' + accTriggerOld);
-    //     system.debug('before update trigger new map: ' + accTriggerNewMap);
-    //     system.debug('before update trigger old map: ' + accTriggerOldMap);
-    // }
-    // if (Trigger.isAfter && Trigger.isUpdate) {
-    //     system.debug('after update trigger new: ' + accTriggerNew);
-    //     system.debug('after update trigger old: ' + accTriggerOld);
-    //     system.debug('after update trigger new map: ' + accTriggerNewMap);
-    //     system.debug('after update trigger old map: ' + accTriggerOldMap);
-    // }
-}
+//     if (Trigger.isBefore && Trigger.isUpdate) {
+//         system.debug('before update trigger new: ' + accTriggerNew);
+//         system.debug('before update trigger old: ' + accTriggerOld);
+//         system.debug('before update trigger new map: ' + accTriggerNewMap);
+//         system.debug('before update trigger old map: ' + accTriggerOldMap);
+//     }
+//     if (Trigger.isAfter && Trigger.isUpdate) {
+//         system.debug('after update trigger new: ' + accTriggerNew);
+//         system.debug('after update trigger old: ' + accTriggerOld);
+//         system.debug('after update trigger new map: ' + accTriggerNewMap);
+//         system.debug('after update trigger old map: ' + accTriggerOldMap);
+//     }
 
+   
 
 
 
@@ -112,15 +120,15 @@ trigger AccountTrigger on Account (before insert, before update, after insert, a
     //         system.debug('old acc id '+oldAcc.id + ', old acc name is '+ oldacc.Name);
 
     //     }
-
-       
-    //         List<Account> accTriggerNew =trigger.new;
-    //         for(account newAcc: accTriggernew){
-    //             system.debug('new  acc id '+newAcc.id + ', new acc name is '+ newacc.Name);
+            // List<Account> accTriggerNew =trigger.new;
+            // for(account newAcc: accTriggernew){
+            //     system.debug('new  acc id '+newAcc.id + ', new acc name is '+ newacc.Name);
     
-    //         }
-    // }
+            // }
+   
 
+           
+// bir recordu update yaptigimda trigger.old ile recordun onceki halini gordum ve before and after update icin calisti.Yeni bir record olusturdugumda ise trigger.old before insert ve after insert icin null geldi.
 
     // if(trigger.isBefore && trigger.isInsert){
     //     system.debug('before insert trigger.old is '+ trigger.old);
@@ -135,9 +143,10 @@ trigger AccountTrigger on Account (before insert, before update, after insert, a
     // if(trigger.isAfter && trigger.isUpdate){
     //     system.debug('after update trigger.old is '+ trigger.old);
     // }
+           
+
     
-
-
+// burda update islemi yaptigimda bir tane before update br tane de after update icin debug gelecek.ayni sekilde insert islemi icinde before ve update olmak uzere iki debug gelecek.
 //     list<account> accTriggerNew = trigger.new;
 //     if(trigger.isBefore && Trigger.isInsert){
 //         system.debug('record in before insert: '+ accTriggerNew);
@@ -169,6 +178,9 @@ trigger AccountTrigger on Account (before insert, before update, after insert, a
 //             system.debug('acc id is '+ eachAcc.Id+ ' acc name is '+ eachAcc.Name);
 //         }
 //     }
+   
+
+   
     // if(trigger.isBefore && trigger.isInsert){
     //     system.debug('before insert trigger called. yeah. ');
     // }
@@ -181,9 +193,8 @@ trigger AccountTrigger on Account (before insert, before update, after insert, a
     // if(trigger.isAfter && trigger.isUpdate){
     //     system.debug('after update trigger called too. ooh yeaah..');
     // }
+
     
-    
-   
     // if(Trigger.isBefore){
     //     system.debug('account before insert trigger called');
 
@@ -192,4 +203,5 @@ trigger AccountTrigger on Account (before insert, before update, after insert, a
     //     system.debug('account after insert trigger called');
         
     // }
+
   
