@@ -1,4 +1,11 @@
 trigger AccountAssignmentTrigger on Account (before insert, after insert, before update, after update) {
+
+    if(trigger.isAfter && trigger.isUpdate){
+AccAssignmentTriggerHandler.UpdateBillingCity(trigger.new, trigger.old, trigger.newMap, trigger.OldMap);
+
+
+
+    }
     if(trigger.isBefore){
         if(trigger.isInsert){
             for (Account eachAcc: trigger.new) {
