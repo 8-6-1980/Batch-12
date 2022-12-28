@@ -1,8 +1,8 @@
 public with sharing class RankHandler {
-    public string rankPrice( integer rank){
+    public string rankPrize( integer rank){
            string price ='';
            if (rank==1) {
-            price =' Gold';
+            price ='Gold';
             
            }else if(rank==2){
             price ='Silver';
@@ -11,7 +11,7 @@ public with sharing class RankHandler {
             price= 'Bronze';
            } else {
             if(rank<= 10){
-                price =' Top 10 certificate';
+                price ='Top 10 certificate';
             }else{
                 price = 'Participation certificate';
             }
@@ -20,23 +20,23 @@ public with sharing class RankHandler {
           return price; 
 
     } 
-    public string rankPriceSwitch(integer rank){
+    public string rankPrizeSwitch(integer rank){
         string price ='';
         switch on rank {
             when 1 {
                 price ='Gold';
             }
             when 2{
-                price=' Silver';
+                price='Silver';
             }
             when 3{
                 price ='Bronze';
             }
             when 4,5,6,7,8,9,10{
-                price =' Top 10 certificate';
+                price ='Top 10 certificate';
             }
             when else {
-                price = ' Participation certificate';
+                price = 'Participation certificate';
             }
             
         }

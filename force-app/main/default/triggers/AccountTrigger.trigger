@@ -3,12 +3,12 @@ trigger AccountTrigger on Account (before insert, before update, after insert, a
         AccountTriggerHandler.updateVIPForAllContacts(trigger.new ,trigger.old, trigger.newMap, trigger.oldMap);
     }
 
-}
 
 
-    // if (Trigger.isBefore) {
-    //     AccountTriggerHandler.updateAccountDescription(trigger.new, trigger.old, trigger.newMap, trigger.oldMap);
-    // }
+
+    if (Trigger.isBefore) {
+        AccountTriggerHandler.updateAccountDescription(trigger.new, trigger.old, trigger.newMap, trigger.oldMap);
+    }
 
 // if(trigger.isBefore){
 //  system.debug('before insert/update trigger on account object');
@@ -204,4 +204,4 @@ trigger AccountTrigger on Account (before insert, before update, after insert, a
         
     // }
 
-  
+    }
