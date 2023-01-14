@@ -3,11 +3,23 @@ trigger AccountTrigger on Account (before insert, before update, after insert, a
         AccountTriggerHandler.updateVIPForAllContacts(trigger.new ,trigger.old, trigger.newMap, trigger.oldMap);
     }
 
+if(trigger.isAfter && trigger.isInsert){
+    AccountQueueableExample aq = new AccountQueueableExample(trigger.new);
+id jobId = system.enqueueJob(aq);
+}
 
 
-
-    if (Trigger.isBefore) {
-        AccountTriggerHandler.updateAccountDescription(trigger.new, trigger.old, trigger.newMap, trigger.oldMap);
+    if (Trigger.isBefore ) {
+        // AccountTriggerHandler.updateAccountDescription(trigger.new, trigger.old, trigger.newMap, trigger.oldMap);
+        if(trigger.isInsert){
+            try{
+                List<Contact> conList = new  List<Contact> ();
+                for(account acc: trigger.new){
+                    contact c = new contact();
+                    c.LastName = acc.Account
+                }
+            }
+        }
     }
 
 // if(trigger.isBefore){

@@ -14,6 +14,8 @@ public class ContactTriggerHandler {
 
        for( contact eachCon: conTriggerNew) {
         if(eachCon.LeadSource !=conTriggerOldMap.get(eachCon.id).LeadSource){
+
+           string customMsg =system.label.ContactValidation2;
             eachCon.LeadSource.addError('CANNOT UPDATE LEAD SOURCE!PLEASE USER.');
         }
        }                                
