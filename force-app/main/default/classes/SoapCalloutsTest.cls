@@ -28,4 +28,12 @@ public with sharing class SoapCalloutsTest {
        system.assertEquals(15, result);
 
     }
+    @isTest 
+    private static void DoMultipilyCalloutTest(){
+        DoMultipilyCalloutMock mock = new  DoMultipilyCalloutMock();
+        Test.setMock(WebServiceMock.class, mock);
+        Double result = SoapCallouts.doMultiplyCallout(3, 5);
+        system.assertEquals(15, result);
+    }
+    
 }
