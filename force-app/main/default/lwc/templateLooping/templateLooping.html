@@ -1,0 +1,17 @@
+<template>
+    <lightning-card title="Template Looping">
+        <div class="slds-var-m-around_medium">
+            <template for:each={carTypes} for:item="car" for:index="indx">
+                <div key={car}>{car}</div>
+            </template>
+        </div>
+        <div class="slds-var-m-around_medium">
+            <template for:each={contacts} for:item="contact" for:index="indx">
+                <div key={contact.id}>
+                    <strong>First Name: </strong>{contact.firstname}<br/>
+                    <strong>Last Name: </strong>{contact.lastname}
+                </div>
+            </template>
+        </div>
+    </lightning-card>
+</template>
