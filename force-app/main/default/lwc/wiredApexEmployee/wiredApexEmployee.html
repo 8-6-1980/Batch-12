@@ -1,0 +1,20 @@
+<template>
+    <lightning-card title="Wired Apex Top Employee Createdby" icon-name="standard:contact" class="employee-table">
+        <div class="slds-var-m-around_medium">
+            <template if:true={employees.data}>
+                <!-- sldsValidatorIgnoreNextLine -->
+                <lightning-datatable
+                key-field="Id"
+                data={employees.data}
+                columns={columns}>
+            </lightning-datatable>
+            </template>
+        </div>
+    </lightning-card>
+</template>
+
+
+
+
+
+

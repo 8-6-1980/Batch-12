@@ -1,0 +1,10 @@
+<template>
+    <lightning-card title="Record Update Example">
+        <div class="slds-var-m-around_medium">
+            <lightning-input type="text" label="Record ID" value={recordId} onchange={handleRecordIdChange}></lightning-input>
+            <lightning-input type="text" label="AccountName" value={field1} onchange={handleField1Change}></lightning-input>
+            <lightning-input type="text" label="Phone" value={field2} onchange={handleField2Change}></lightning-input>
+            <lightning-button label="Update Record" onclick={updateRecord} variant="brand"></lightning-button>
+        </div>
+    </lightning-card>
+</template>

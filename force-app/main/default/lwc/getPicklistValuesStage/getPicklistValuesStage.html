@@ -1,0 +1,17 @@
+<template>
+    <lightning-card title="Get Picklist Values" icon-name="action:change_record_type">
+        <div class="slds-var-m-around_medium">
+            <lightning-combobox
+            label="Select the stage"
+            options={stageOptions}
+            onchange={changeHandler}>
+        </lightning-combobox>
+        <template if:true={selectedStage}>
+            <div class="slds-var-p-top_medium">
+                current stage is : {selectedStage}
+            </div>
+        </template>
+           
+        </div>
+    </lightning-card>
+</template>

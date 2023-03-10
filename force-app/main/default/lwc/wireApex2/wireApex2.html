@@ -1,0 +1,16 @@
+<template>
+    <lightning-card title="Wired Apex - Top Opps" icon-name="standard:opportunity">
+        <div class="slds-var-m-around_medium">
+            <template if:true={opportunities.data}>
+                <template for:each={opportunities.data} for:item="opportunity">
+                    <div key={opportunity.Id} class="slds-box slds-var-p-bottom_small grey-background">
+                        <strong>{opportunity.Name}</strong> <br>
+                         {opportunity.Amount} , {opportunity.Type} <br> {opportunity.CloseDate}
+                        
+
+                    </div>
+                </template>
+            </template>
+        </div>
+    </lightning-card>
+</template>
