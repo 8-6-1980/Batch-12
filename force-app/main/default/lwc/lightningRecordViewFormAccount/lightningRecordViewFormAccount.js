@@ -1,4 +1,4 @@
-import { LightningElement } from 'lwc';
+import { api, LightningElement } from 'lwc';
 import ACCOUNT_OBJECT from '@salesforce/schema/Account';
 import NAME_FIELD from '@salesforce/schema/Account.Name';
 import TYPE_FIELD from '@salesforce/schema/Account.Type';
@@ -9,7 +9,7 @@ import PHONE_FIELD from '@salesforce/schema/Account.Phone';
 
 
 export default class LightningRecordViewFormAccount extends LightningElement {
-    recordId = '001Do000003DzfwIAC'; 
+    @api recordId; 
     objectName =ACCOUNT_OBJECT;
     fields ={
         name: NAME_FIELD,

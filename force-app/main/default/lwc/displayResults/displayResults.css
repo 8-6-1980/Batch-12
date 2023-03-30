@@ -1,0 +1,13 @@
+.search-results {
+    font-weight: bold;
+    text-transform: uppercase;
+    background-color: rgb(155, 232, 232);
+    color: black;
+    padding: 2px;
+}
+.search-error {
+    font-weight: bold;
+    text-transform: uppercase;
+    background-color: rgb(155, 232, 232);
+    color: rgb(145, 9, 9);
+}

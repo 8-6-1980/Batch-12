@@ -13,3 +13,6 @@ system.debug(' cat 2 '+ cat2);
  system.debug( 'batch 12 cat '+ batch12Cat3)
 
 system.debug('number of cats=>'+ Cat.countCat);
+
+List <Opportunity> opportunitiesToDelete = [SELECT Id FROM Opportunity WHERE Name= 'Big 5M Opp'];
+delete opportunitiesToDelete;
